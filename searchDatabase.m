@@ -1,15 +1,15 @@
 function filename = searchDatabase(Clip)
 
-%load 'MusicDataBase.mat';
+load ('MusicDataBase.mat','DataBase','FileDataBase');
 
 function hashvalue = MyHash(f1,f2,t21)
 hashvalue=t21*(2^16) + f1*(2^8) + f2;
 end
 
-[DataBase,FileDataBase]=make_database('MusicFiles');
+%[DataBase,FileDataBase]=make_database('MusicFiles');
 
-size(DataBase)
-FileDataBase
+%size(DataBase)
+%FileDataBase
 
 [Table,HashTable]=song_to_table(Clip);
 
