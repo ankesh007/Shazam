@@ -1,0 +1,20 @@
+function MusicFileDatabase = make_database(DirectoryName)
+
+%DirectoryName2=cellstr(DirectoryName);
+
+Filenames=getMp3List(DirectoryName);
+char(Filenames)
+MusicFileDatabase=[];
+%Filenames
+[r,c]=size(Filenames);
+%Filenames(1,1:c)
+
+for i = 1:1:r
+    [temp1,temp2] = song_to_table(strcat(DirectoryName,'/',cellstr(Filenames(i,1:c))));
+    MusicFileDatabase=[song_to_table(strcat(DirectoryName,'/',cellstr(Filenames(i,1:c))));MusicFileDatabase];
+    %MusicFileDatabase=[song_to_table(Filenames(i,1:c)) MusicFileDatabase]
+
+end
+
+end
+
