@@ -20,7 +20,7 @@ nfft=window; %assumed
 
 [S,F,T] = spectrogram(y,window,overlap,nfft,NewFrequency);
 
-%spectrogram(y,512,256,512,NewFrequency,'yaxis');
+spectrogram(y,512,256,512,NewFrequency,'yaxis');
 
 CS=circshift(S,[0,-1]);
 P=((S-CS)>0);
