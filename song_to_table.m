@@ -21,6 +21,8 @@ nfft=window; %assumed
 [S,F,T] = spectrogram(y,window,overlap,nfft,NewFrequency);
 
 spectrogram(y,512,256,512,NewFrequency,'yaxis');
+colorbar
+title('Spectrogram of Input Music File');
 
 CS=circshift(S,[0,-1]);
 P=((S-CS)>0);
@@ -40,8 +42,12 @@ Q=sort(Q,1);
 R=Q(r-PEAKS_PER_SECOND,1:c);
 R=repmat(R,r,1);
 P30=(S-R>=0)&P;
-%imagesc((1:c)+0.5,(1:r)+0.5,P30);
-%colormap(1-gray);
+imagesc((1:c)+0.5,(1:r)+0.5,P30);
+colormap(1-gray);
+title('Constellation of peaks');
+xlabel('Time Window');
+ylabel('Normalised Frequency');
+
 size (P30)
 delt=2;
 delf=2;
